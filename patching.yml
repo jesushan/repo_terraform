@@ -1,0 +1,18 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+  - name: Package installation
+    dnf:
+      name:
+        - telnet
+      state: latest
+
+  - name: Ansible create file with content example
+    copy:
+      dest: "/tmp/remote_server.txt"
+      content: |
+        dog1
+        tiger
+    
